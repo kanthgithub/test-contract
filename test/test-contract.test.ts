@@ -42,7 +42,6 @@ describe('TestContract', () => {
   it("reverts for no reason", async () => {
     await testContract.deposit(DEPOSIT_AMOUNT, { value: DEPOSIT_AMOUNT });
     assertRevert(testContract.revertForNoReason(SIG.message, SIG.v, SIG.r, SIG.s, { gasLimit: 30000 }), "No reason");
-    await new Promise(resolve => { setTimeout(resolve, 1000); });
     await testContract.deposit(DEPOSIT_AMOUNT, { value: DEPOSIT_AMOUNT });
   });
 });
